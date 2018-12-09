@@ -4,8 +4,10 @@ class TooltipComponent extends HTMLElement {
         this._tooltipContainer;
         this._tooltipText = "Default value for tooltipText"
         this.attachShadow({ mode: 'open' });
-        const template = document.querySelector('#aetooltip-template');
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
+        this.shadowRoot.innerHTML = `
+            <span> (?)</span>
+            <slot></slot><span> (?)</span>
+        `;
     }
 
     connectedCallback() {
