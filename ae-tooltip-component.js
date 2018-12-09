@@ -13,7 +13,6 @@ class TooltipComponent extends HTMLElement {
                     z-index: 10;
                 }
             </style>
-            <span> (?)</span>
             <slot></slot><span> (?)</span>
         `;
     }
