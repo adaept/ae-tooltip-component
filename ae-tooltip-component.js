@@ -3,6 +3,7 @@ class TooltipComponent extends HTMLElement {
         super();
         this._tooltipContainer;
         this._tooltipText = "Default value for tooltipText"
+        this.attachShadow({ mode: 'open' })
     }
 
     connectedCallback() {
@@ -10,10 +11,10 @@ class TooltipComponent extends HTMLElement {
             this._tooltipText = this.getAttribute('aetext');
         }
         const tooltipHint = document.createElement('span');
-        tooltipHint.textContent = ' (hoverme)';
+        tooltipHint.textContent = ' (?)';
         tooltipHint.addEventListener('mouseenter', this._showTooltipHint.bind(this));
         tooltipHint.addEventListener('mouseleave', this._hideTooltipHint.bind(this));
-        this.appendChild(tooltipHint);
+        this.shadowRoot.appendChild(tooltipHint);
         this.style.position = 'relative';
     }
 
@@ -24,11 +25,11 @@ class TooltipComponent extends HTMLElement {
         this._tooltipContainer.style.color = 'white';
         this.style.position = 'absolute';
         this.style.zIndex = '10';
-        this.appendChild(this._tooltipContainer);
+        this.shadowRoot.appendChild(this._tooltipContainer);
     }
 
     _hideTooltipHint() {
-        this.removeChild(this._tooltipContainer);
+        this.shadowRoot.removeChild(this._tooltipContainer);
     }
 }
 
