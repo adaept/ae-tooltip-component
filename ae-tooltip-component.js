@@ -5,6 +5,7 @@ class TooltipComponent extends HTMLElement {
     }
 
     connectedCallback() {
+        this._tooltipText = this.getAttribute('aetext')
         const tooltipHint = document.createElement('span');
         tooltipHint.textContent = ' (hoverme)';
         tooltipHint.addEventListener('mouseenter', this._showTooltipHint.bind(this));
@@ -14,7 +15,7 @@ class TooltipComponent extends HTMLElement {
 
     _showTooltipHint() {
         this._tooltipContainer = document.createElement('div');
-        this._tooltipContainer.textContent = 'ae-tooltip details...';
+        this._tooltipContainer.textContent = this._tooltipText;
         this.appendChild(this._tooltipContainer);
     }
 
