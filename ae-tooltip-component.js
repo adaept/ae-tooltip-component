@@ -3,15 +3,16 @@ class TooltipComponent extends HTMLElement {
         super();
         this._tooltipContainer;
         this._tooltipText = "Default value for tooltipText"
-        this.attachShadow({ mode: 'open' })
+        this.attachShadow({ mode: 'open' });
+        const template = document.querySelector('#aetooltip-template');
+        this.shadowRoot.appendChild(template.content.cloneNode(true))
     }
 
     connectedCallback() {
         if (this.hasAttribute('aetext')) {
             this._tooltipText = this.getAttribute('aetext');
         }
-        const tooltipHint = document.createElement('span');
-        tooltipHint.textContent = ' (?)';
+        const tooltipHint = this.shadowRoot.querySelector('span');
         tooltipHint.addEventListener('mouseenter', this._showTooltipHint.bind(this));
         tooltipHint.addEventListener('mouseleave', this._hideTooltipHint.bind(this));
         this.shadowRoot.appendChild(tooltipHint);
