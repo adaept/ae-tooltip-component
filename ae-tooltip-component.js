@@ -20,8 +20,17 @@ class TooltipComponent extends HTMLElement {
                 ::slotted(.highlight) {
                     border-bottom: 1px dotted red;
                 }
+
+                .aeicon {
+                    background: black;
+                    color: white;
+                    padding: 0.15rem 0.5rem;
+                    text-align: center;
+                    border-radius: 50%
+                }
             </style>
-            <slot></slot><span> (?)</span>
+            <slot>Default for icon</slot>
+            <span class="aeicon">?</span>
         `;
     }
 
