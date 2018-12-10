@@ -13,6 +13,10 @@ class TooltipComponent extends HTMLElement {
                     z-index: 10;
                 }
 
+                :host {
+                    background: lightgrey;
+                }
+
                 .highlight {
                     background-color: red;
                 }
