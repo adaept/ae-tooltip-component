@@ -56,7 +56,6 @@ class TooltipComponent extends HTMLElement {
         const tooltipHint = this.shadowRoot.querySelector('span');
         tooltipHint.addEventListener('mouseenter', this._showTooltipHint.bind(this));
         tooltipHint.addEventListener('mouseleave', this._hideTooltipHint.bind(this));
-        this.shadowRoot.appendChild(tooltipHint);
         this.style.position = 'relative';
     }
 
