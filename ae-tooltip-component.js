@@ -17,6 +17,10 @@ class TooltipComponent extends HTMLElement {
                     background: lightgrey;
                 }
 
+                :host-context(p) {
+                    font-weight: bold;
+                }
+
                 .highlight {
                     background-color: red;
                 }
