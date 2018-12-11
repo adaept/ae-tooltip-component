@@ -13,7 +13,7 @@ class TooltipComponent extends HTMLElement {
                     z-index: 10;
                 }
 
-                :host {
+                :host(.aebackground) {
                     background: lightgrey;
                 }
 
