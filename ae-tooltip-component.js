@@ -72,6 +72,10 @@ class TooltipComponent extends HTMLElement {
         return ['aetext'];
     }
 
+    disconnectedCallback() {
+        console.log('Disconnected!')
+    }
+
     _showTooltipHint() {
         this._tooltipContainer = document.createElement('div');
         this._tooltipContainer.textContent = this._tooltipText;
