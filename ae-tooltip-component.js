@@ -2,6 +2,7 @@ class TooltipComponent extends HTMLElement {
     constructor() {
         super();
         this._tooltipContainer;
+        this._tooltipHint;
         this._tooltipText = "Default value for tooltipText"
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
@@ -53,9 +54,9 @@ class TooltipComponent extends HTMLElement {
         if (this.hasAttribute('aetext')) {
             this._tooltipText = this.getAttribute('aetext');
         }
-        const tooltipHint = this.shadowRoot.querySelector('span');
-        tooltipHint.addEventListener('mouseenter', this._showTooltipHint.bind(this));
-        tooltipHint.addEventListener('mouseleave', this._hideTooltipHint.bind(this));
+        this._tooltipHint = this.shadowRoot.querySelector('span');
+        this._tooltipHint.addEventListener('mouseenter', this._showTooltipHint.bind(this));
+        this._tooltipHint.addEventListener('mouseleave', this._hideTooltipHint.bind(this));
         this.style.position = 'relative';
     }
 
@@ -73,7 +74,8 @@ class TooltipComponent extends HTMLElement {
     }
 
     disconnectedCallback() {
-        console.log('Disconnected!')
+        this._tooltipHint.removeEventListener('mouseenter', this._showTooltipHint);
+        this._tooltipHint.removeEventListener('mouseleave', this._hideTooltipHint);
     }
 
     _showTooltipHint() {
