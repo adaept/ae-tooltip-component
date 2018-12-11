@@ -14,7 +14,7 @@ class TooltipComponent extends HTMLElement {
                 }
 
                 :host(.aebackground) {
-                    background: var(--color-primary);
+                    background: var(--color-primary, lightgray);
                 }
 
                 :host-context(p) {
