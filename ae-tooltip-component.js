@@ -61,7 +61,12 @@ class TooltipComponent extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        console.log(name, oldValue, newValue)
+        if (oldValue === newValue) {
+            return;
+        }
+        if (name === 'aetext') {
+            this._tooltipText = newValue;
+        }
     }
 
     static get observedAttributes() {
