@@ -7,23 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>adaept tooltip component</title>
     <style>
+        * {
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
         html {
             --color-primary: lightblue;
         }
 
-        div {
+        /* div {
             border: 2px solid orange;
         }
 
-        ae-tooltip-component {
+         ae-tooltip-component {
             border: 1px solid blue;
             padding: 0.15rem;
         }
 
         .highlight {
-            /* background-color: yellow; */
-            /* border-bottom: 2px solid blue; */
-        }
+            background-color: yellow;
+            border-bottom: 2px solid blue; 
+        } */
     </style>
     <script src="ae-tooltip-component.js"></script>
     <script src="ae-confirmlink-component.js"></script>
@@ -38,10 +43,12 @@
     </p>
 
     <ae-tooltip-component></ae-tooltip-component>
-    <div>This does not get the web component styles!</div>
+    <!-- <div>This does not get the web component styles!</div> -->
     <a is="ae-confirmlink-component" href="https://www.google.com">Google</a>
     <br />
-    <ae-infotoggle-component is-visible="true">This works!</ae-infotoggle-component>
+    <p>
+        <ae-infotoggle-component is-visible="true">This works!</ae-infotoggle-component>
+    </p>
 </body>
 
 </html>
